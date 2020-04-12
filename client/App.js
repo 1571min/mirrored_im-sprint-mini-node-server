@@ -10,13 +10,13 @@ class App {
   post(path, body) {
     fetch(`http://localhost:5000/${path}`, {
       method: 'POST',
-      body: JSON.stringify(body),
+      body: JSON.stringify({ value: body }),
       headers: {
-        'content-type': 'text/json'
-      }
+        'content-type': 'application/json',
+      },
     })
-      .then(res => res.json())
-      .then(res => {
+      .then((res) => res.json())
+      .then((res) => {
         this.render(res);
       });
   }
